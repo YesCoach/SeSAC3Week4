@@ -128,6 +128,21 @@
             </objects>
             <point key="canvasLocation" x="1433" y="-10"/>
         </scene>
+        <!--Lottery View Controller-->
+        <scene sceneID="TPK-V4-VYS">
+            <objects>
+                <viewController id="iE8-jU-LvN" customClass="LotteryViewController" customModule="SeSAC3Week4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ct-97-Uyq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dSE-HT-Pmr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vb0-ES-Meu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="359" y="796"/>
+        </scene>
         <!--Video View Controller-->
         <scene sceneID="JB5-qk-aMp">
             <objects>

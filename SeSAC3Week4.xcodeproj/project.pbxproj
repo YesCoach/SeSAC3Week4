@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		891DE7632A81C4F30036FB5C /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DE7622A81C4F30036FB5C /* WeatherViewController.swift */; };
 		891DE7652A81E8240036FB5C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DE7642A81E8240036FB5C /* VideoViewController.swift */; };
+		891DE7682A821A100036FB5C /* LotteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DE7672A821A100036FB5C /* LotteryViewController.swift */; };
+		891DE76D2A821AB50036FB5C /* Assignment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891DE76C2A821AB50036FB5C /* Assignment.storyboard */; };
+		891DE7702A8224720036FB5C /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DE76F2A8224720036FB5C /* Lottery.swift */; };
 		895442F22A80966900C8460E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442F12A80966900C8460E /* AppDelegate.swift */; };
 		895442F42A80966900C8460E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442F32A80966900C8460E /* SceneDelegate.swift */; };
 		895442F62A80966900C8460E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442F52A80966900C8460E /* ViewController.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		891DE7622A81C4F30036FB5C /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		891DE7642A81E8240036FB5C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		891DE7672A821A100036FB5C /* LotteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryViewController.swift; sourceTree = "<group>"; };
+		891DE76C2A821AB50036FB5C /* Assignment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assignment.storyboard; sourceTree = "<group>"; };
+		891DE76F2A8224720036FB5C /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
 		895442EE2A80966900C8460E /* SeSAC3Week4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3Week4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895442F12A80966900C8460E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		895442F32A80966900C8460E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +59,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		891DE7662A8219E00036FB5C /* Lottery */ = {
+			isa = PBXGroup;
+			children = (
+				891DE7672A821A100036FB5C /* LotteryViewController.swift */,
+			);
+			path = Lottery;
+			sourceTree = "<group>";
+		};
+		891DE7692A821A6F0036FB5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				891DE76A2A821A830036FB5C /* Practice */,
+				891DE76B2A821A940036FB5C /* Assignment */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		891DE76A2A821A830036FB5C /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				895442F72A80966900C8460E /* Main.storyboard */,
+				895442F52A80966900C8460E /* ViewController.swift */,
+				891DE7642A81E8240036FB5C /* VideoViewController.swift */,
+				891DE7622A81C4F30036FB5C /* WeatherViewController.swift */,
+				895443102A809C2B00C8460E /* TranslationViewController.swift */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
+		891DE76B2A821A940036FB5C /* Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				891DE76C2A821AB50036FB5C /* Assignment.storyboard */,
+				891DE7662A8219E00036FB5C /* Lottery */,
+			);
+			path = Assignment;
+			sourceTree = "<group>";
+		};
+		891DE76E2A821B130036FB5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				891DE76F2A8224720036FB5C /* Lottery.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		895442E52A80966900C8460E = {
 			isa = PBXGroup;
 			children = (
@@ -74,11 +126,8 @@
 			children = (
 				895442F12A80966900C8460E /* AppDelegate.swift */,
 				895442F32A80966900C8460E /* SceneDelegate.swift */,
-				895442F72A80966900C8460E /* Main.storyboard */,
-				895442F52A80966900C8460E /* ViewController.swift */,
-				891DE7642A81E8240036FB5C /* VideoViewController.swift */,
-				891DE7622A81C4F30036FB5C /* WeatherViewController.swift */,
-				895443102A809C2B00C8460E /* TranslationViewController.swift */,
+				891DE76E2A821B130036FB5C /* Model */,
+				891DE7692A821A6F0036FB5C /* View */,
 				895443122A809C4E00C8460E /* APIKey.swift */,
 				895442FA2A80966C00C8460E /* Assets.xcassets */,
 				895442FC2A80966C00C8460E /* LaunchScreen.storyboard */,
@@ -160,6 +209,7 @@
 				895442FE2A80966C00C8460E /* LaunchScreen.storyboard in Resources */,
 				895442FB2A80966C00C8460E /* Assets.xcassets in Resources */,
 				895442F92A80966900C8460E /* Main.storyboard in Resources */,
+				891DE76D2A821AB50036FB5C /* Assignment.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891DE7682A821A100036FB5C /* LotteryViewController.swift in Sources */,
+				891DE7702A8224720036FB5C /* Lottery.swift in Sources */,
 				895443112A809C2B00C8460E /* TranslationViewController.swift in Sources */,
 				891DE7652A81E8240036FB5C /* VideoViewController.swift in Sources */,
 				891DE7632A81C4F30036FB5C /* WeatherViewController.swift in Sources */,
@@ -328,7 +380,7 @@
 				INFOPLIST_FILE = SeSAC3Week4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Assignment;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -356,7 +408,7 @@
 				INFOPLIST_FILE = SeSAC3Week4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Assignment;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
