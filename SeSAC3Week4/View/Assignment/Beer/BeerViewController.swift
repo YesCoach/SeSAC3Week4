@@ -39,6 +39,15 @@ final class BeerViewController: UIViewController {
         fetchData()
     }
 
+    @IBAction func didRightBarButtonTouched(_ sender: UIBarButtonItem) {
+        guard let viewController = storyboard?.instantiateViewController(
+            withIdentifier: BeerListViewController.identifier
+        ) as? BeerListViewController
+        else { return }
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
 }
 
 private extension BeerViewController {
@@ -66,6 +75,8 @@ private extension BeerViewController {
         config.baseForegroundColor = .systemOrange
 
         beerButton.configuration = config
+
+        navigationItem.backButtonTitle = ""
     }
 
     func fetchData() {
