@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import Kingfisher
 
 final class BeerViewController: UIViewController {
 
@@ -15,9 +18,25 @@ final class BeerViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var beerButton: UIButton!
 
+    private var beer: Beer? {
+        didSet {
+            if let beer {
+                let url = URL(string: beer.imageURL ?? "")
+                imageView.kf.setImage(with: url)
+                nameLabel.text = beer.name
+                descriptionLabel.text = beer.description
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchData()
+    }
+
+    @IBAction func didRandomBeerButtonTouched(_ sender: UIButton) {
+        fetchData()
     }
 
 }
@@ -29,7 +48,7 @@ private extension BeerViewController {
         headerLabel.font = .systemFont(ofSize: 20, weight: .bold)
         headerLabel.textAlignment = .center
 
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
 
         nameLabel.font = .systemFont(ofSize: 14, weight: .bold)
         nameLabel.textAlignment = .center
@@ -47,5 +66,34 @@ private extension BeerViewController {
         config.baseForegroundColor = .systemOrange
 
         beerButton.configuration = config
+    }
+
+    func fetchData() {
+
+        let url = "https://api.punkapi.com/v2/beers/random"
+
+        AF.request(
+            url,
+            method: .get
+        )
+        .validate()
+        .responseJSON { [weak self] response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+
+                self?.beer = Beer(
+                    id: json[0]["id"].intValue,
+                    name: json[0]["name"].stringValue,
+                    imageURL: json[0]["image_url"].stringValue,
+                    description: json[0]["description"].stringValue
+                )
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+
     }
 }
