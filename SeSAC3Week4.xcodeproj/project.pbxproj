@@ -12,6 +12,7 @@
 		891DE7682A821A100036FB5C /* LotteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DE7672A821A100036FB5C /* LotteryViewController.swift */; };
 		891DE76D2A821AB50036FB5C /* Assignment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891DE76C2A821AB50036FB5C /* Assignment.storyboard */; };
 		891DE7702A8224720036FB5C /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DE76F2A8224720036FB5C /* Lottery.swift */; };
+		891DE7762A8236EA0036FB5C /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DE7752A8236EA0036FB5C /* BeerViewController.swift */; };
 		895442F22A80966900C8460E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442F12A80966900C8460E /* AppDelegate.swift */; };
 		895442F42A80966900C8460E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442F32A80966900C8460E /* SceneDelegate.swift */; };
 		895442F62A80966900C8460E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895442F52A80966900C8460E /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		891DE7672A821A100036FB5C /* LotteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryViewController.swift; sourceTree = "<group>"; };
 		891DE76C2A821AB50036FB5C /* Assignment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Assignment.storyboard; sourceTree = "<group>"; };
 		891DE76F2A8224720036FB5C /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
+		891DE7752A8236EA0036FB5C /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		895442EE2A80966900C8460E /* SeSAC3Week4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3Week4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895442F12A80966900C8460E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		895442F32A80966900C8460E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				891DE76C2A821AB50036FB5C /* Assignment.storyboard */,
+				891DE7742A822FB80036FB5C /* Beer */,
 				891DE7662A8219E00036FB5C /* Lottery */,
 			);
 			path = Assignment;
@@ -103,6 +106,14 @@
 				891DE76F2A8224720036FB5C /* Lottery.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		891DE7742A822FB80036FB5C /* Beer */ = {
+			isa = PBXGroup;
+			children = (
+				891DE7752A8236EA0036FB5C /* BeerViewController.swift */,
+			);
+			path = Beer;
 			sourceTree = "<group>";
 		};
 		895442E52A80966900C8460E = {
@@ -220,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891DE7762A8236EA0036FB5C /* BeerViewController.swift in Sources */,
 				891DE7682A821A100036FB5C /* LotteryViewController.swift in Sources */,
 				891DE7702A8224720036FB5C /* Lottery.swift in Sources */,
 				895443112A809C2B00C8460E /* TranslationViewController.swift in Sources */,
