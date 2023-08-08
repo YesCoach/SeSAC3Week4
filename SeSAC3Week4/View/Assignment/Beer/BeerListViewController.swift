@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 final class BeerListViewController: UIViewController {
 
@@ -13,11 +15,16 @@ final class BeerListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
 
-    private var dataList: [Beer] = []
+    private var dataList: [Beer] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchData()
     }
 }
 
@@ -27,6 +34,29 @@ private extension BeerListViewController {
         let nib = UINib(nibName: BeerTableViewCell.identifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: BeerTableViewCell.identifier)
         tableView.dataSource = self
+        tableView.rowHeight = 80.0
+    }
+
+    func fetchData() {
+        let url = "https://api.punkapi.com/v2/beers/"
+        AF.request(url, method: .get).validate().responseJSON { [weak self] response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+                self?.dataList = json.map({ (str, json) in
+                    let beer = Beer(
+                        id: json["id"].intValue,
+                        name: json["name"].stringValue,
+                        imageURL: json["image_url"].stringValue,
+                        description: json["description"].stringValue
+                    )
+                    return beer
+                })
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }
