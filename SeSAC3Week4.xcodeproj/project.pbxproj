@@ -29,6 +29,7 @@
 		8954430F2A809B8C00C8460E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8954430E2A809B8B00C8460E /* .gitignore */; };
 		895443112A809C2B00C8460E /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895443102A809C2B00C8460E /* TranslationViewController.swift */; };
 		895443132A809C4E00C8460E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895443122A809C4E00C8460E /* APIKey.swift */; };
+		89CD16522A83231E00B29615 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD16512A83231E00B29615 /* VideoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		8954430E2A809B8B00C8460E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		895443102A809C2B00C8460E /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		895443122A809C4E00C8460E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		89CD16512A83231E00B29615 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				895442F72A80966900C8460E /* Main.storyboard */,
 				895442F52A80966900C8460E /* ViewController.swift */,
 				891DE7642A81E8240036FB5C /* VideoViewController.swift */,
+				89CD16512A83231E00B29615 /* VideoTableViewCell.swift */,
 				891DE7622A81C4F30036FB5C /* WeatherViewController.swift */,
 				895443102A809C2B00C8460E /* TranslationViewController.swift */,
 			);
@@ -253,6 +256,7 @@
 				891DE7652A81E8240036FB5C /* VideoViewController.swift in Sources */,
 				891DE7632A81C4F30036FB5C /* WeatherViewController.swift in Sources */,
 				895442F62A80966900C8460E /* ViewController.swift in Sources */,
+				89CD16522A83231E00B29615 /* VideoTableViewCell.swift in Sources */,
 				891DE77D2A8248A40036FB5C /* BeerTableViewCell.swift in Sources */,
 				895442F22A80966900C8460E /* AppDelegate.swift in Sources */,
 				895442F42A80966900C8460E /* SceneDelegate.swift in Sources */,
