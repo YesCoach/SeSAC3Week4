@@ -29,6 +29,7 @@
 		8954430F2A809B8C00C8460E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8954430E2A809B8B00C8460E /* .gitignore */; };
 		895443112A809C2B00C8460E /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895443102A809C2B00C8460E /* TranslationViewController.swift */; };
 		895443132A809C4E00C8460E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895443122A809C4E00C8460E /* APIKey.swift */; };
+		8980494A2A84B4EF00177876 /* Translation2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898049492A84B4EF00177876 /* Translation2ViewController.swift */; };
 		89CD16522A83231E00B29615 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD16512A83231E00B29615 /* VideoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		8954430E2A809B8B00C8460E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		895443102A809C2B00C8460E /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		895443122A809C4E00C8460E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		898049492A84B4EF00177876 /* Translation2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation2ViewController.swift; sourceTree = "<group>"; };
 		89CD16512A83231E00B29615 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 				89CD16512A83231E00B29615 /* VideoTableViewCell.swift */,
 				891DE7622A81C4F30036FB5C /* WeatherViewController.swift */,
 				895443102A809C2B00C8460E /* TranslationViewController.swift */,
+				898049492A84B4EF00177876 /* Translation2ViewController.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				891DE77A2A8247C20036FB5C /* BeerListViewController.swift in Sources */,
 				891DE7762A8236EA0036FB5C /* BeerViewController.swift in Sources */,
 				891DE7682A821A100036FB5C /* LotteryViewController.swift in Sources */,
+				8980494A2A84B4EF00177876 /* Translation2ViewController.swift in Sources */,
 				891DE7702A8224720036FB5C /* Lottery.swift in Sources */,
 				891DE7782A823CE10036FB5C /* Beer.swift in Sources */,
 				895443112A809C2B00C8460E /* TranslationViewController.swift in Sources */,
