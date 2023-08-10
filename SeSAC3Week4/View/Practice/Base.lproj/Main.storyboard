@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DXN-w7-nRF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B5O-ke-qxp">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -56,10 +56,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hU1-zZ-GGz">
+                                <rect key="frame" x="186.66666666666666" y="428.66666666666669" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hU1-zZ-GGz" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="4GM-jh-bur"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CcC-PI-lwn" secondAttribute="bottom" id="8sS-CN-KC5"/>
                             <constraint firstItem="KPw-2r-RYX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ISo-Wp-fFT"/>
                             <constraint firstItem="KPw-2r-RYX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MUI-lQ-KJE"/>
@@ -67,9 +71,12 @@
                             <constraint firstItem="CcC-PI-lwn" firstAttribute="top" secondItem="KPw-2r-RYX" secondAttribute="bottom" id="f2X-zn-a0H"/>
                             <constraint firstItem="CcC-PI-lwn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sj3-Il-lz7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CcC-PI-lwn" secondAttribute="trailing" id="tL6-Ek-qI9"/>
+                            <constraint firstItem="hU1-zZ-GGz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zCb-hj-LeS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="hU1-zZ-GGz" id="8XN-5v-Gdr"/>
+                        <outlet property="searchBar" destination="KPw-2r-RYX" id="3cO-wv-kM5"/>
                         <outlet property="tableView" destination="CcC-PI-lwn" id="gOQ-2j-BYu"/>
                     </connections>
                 </viewController>
@@ -142,6 +149,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb0-ES-Meu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="359" y="796"/>
+        </scene>
+        <!--Translation View Controller-->
+        <scene sceneID="JYO-QJ-q2a">
+            <objects>
+                <viewController id="B5O-ke-qxp" customClass="TranslationViewController" customModule="SeSAC3Week4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hgF-lq-s9R">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5JG-ku-Zgx">
+                                <rect key="frame" x="20" y="79" width="353" height="314.66666666666669"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iWN-bD-LLA">
+                                <rect key="frame" x="20" y="483.66666666666674" width="353" height="314.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enY-vP-zXa">
+                                <rect key="frame" x="20" y="413.66666666666669" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6mP-gP-JDz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="didRequestButtonTouched:" destination="B5O-ke-qxp" eventType="touchUpInside" id="GuR-9w-eUI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uio-fl-0gv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Uio-fl-0gv" firstAttribute="trailing" secondItem="enY-vP-zXa" secondAttribute="trailing" constant="20" id="AFf-WM-pve"/>
+                            <constraint firstItem="Uio-fl-0gv" firstAttribute="trailing" secondItem="iWN-bD-LLA" secondAttribute="trailing" constant="20" id="Gw1-7V-LUv"/>
+                            <constraint firstItem="iWN-bD-LLA" firstAttribute="height" secondItem="5JG-ku-Zgx" secondAttribute="height" id="UeC-C0-PZf"/>
+                            <constraint firstItem="iWN-bD-LLA" firstAttribute="leading" secondItem="Uio-fl-0gv" secondAttribute="leading" constant="20" id="WZh-Tz-F2z"/>
+                            <constraint firstItem="enY-vP-zXa" firstAttribute="top" secondItem="5JG-ku-Zgx" secondAttribute="bottom" constant="20" id="WnK-c2-fOV"/>
+                            <constraint firstItem="5JG-ku-Zgx" firstAttribute="top" secondItem="Uio-fl-0gv" secondAttribute="top" constant="20" id="bwX-ji-s7s"/>
+                            <constraint firstItem="5JG-ku-Zgx" firstAttribute="leading" secondItem="Uio-fl-0gv" secondAttribute="leading" constant="20" id="ekU-eU-cOW"/>
+                            <constraint firstItem="enY-vP-zXa" firstAttribute="leading" secondItem="Uio-fl-0gv" secondAttribute="leading" constant="20" id="ota-7B-uQZ"/>
+                            <constraint firstItem="iWN-bD-LLA" firstAttribute="top" secondItem="enY-vP-zXa" secondAttribute="bottom" constant="20" id="pez-SK-LEm"/>
+                            <constraint firstItem="Uio-fl-0gv" firstAttribute="bottom" secondItem="iWN-bD-LLA" secondAttribute="bottom" constant="20" id="wBd-q3-KhN"/>
+                            <constraint firstItem="Uio-fl-0gv" firstAttribute="trailing" secondItem="5JG-ku-Zgx" secondAttribute="trailing" constant="20" id="zRa-OI-fMy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="originalTextView" destination="5JG-ku-Zgx" id="FiG-12-2qm"/>
+                        <outlet property="requestButton" destination="enY-vP-zXa" id="HLQ-iN-PaE"/>
+                        <outlet property="translateTextView" destination="iWN-bD-LLA" id="tac-e5-D9P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FRS-kz-VO5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="356.48854961832058" y="1632.3943661971832"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="uZa-L2-nVo">
@@ -231,6 +300,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

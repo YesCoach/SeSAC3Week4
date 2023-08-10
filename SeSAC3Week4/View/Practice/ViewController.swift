@@ -17,6 +17,8 @@ struct Movie {
 final class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
+    @IBOutlet var searchBar: UISearchBar!
 
     var movieList: [Movie] = []
 
@@ -27,13 +29,22 @@ final class ViewController: UIViewController {
         tableView.rowHeight = 60
         tableView.dataSource = self
         tableView.delegate = self
-
-        callRequest()
+        tableView.keyboardDismissMode = .onDrag
+        indicatorView.isHidden = true
     }
 
-    func callRequest() {
-        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=20230806"
-        AF.request(url, method: .get).validate().responseJSON { response in
+    func callRequest(date: String) {
+
+        indicatorView.isHidden = false
+        indicatorView.startAnimating()
+
+        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=\(APIKey.boxOfficeKey)&targetDt=\(date)"
+
+        AF.request(url, method: .get).validate().responseJSON { [weak self] response in
+
+            self?.indicatorView.isHidden = true
+            self?.indicatorView.stopAnimating()
+
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -45,10 +56,10 @@ final class ViewController: UIViewController {
 
                     let movie = Movie(title: title, release: release)
 
-                    self.movieList.append(movie)
+                    self?.movieList.append(movie)
                 }
 
-                self.tableView.reloadData()
+                self?.tableView.reloadData()
 
             case .failure(let error):
                 print(error)
@@ -75,5 +86,18 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+
+}
+
+
+extension ViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        // 20220101 > 1. 8글자 2. 20233333 올바른 날짜 3. 날짜의 범위에 해당하는지
+
+        callRequest(date: searchBar.text!)
+
+    }
 
 }
