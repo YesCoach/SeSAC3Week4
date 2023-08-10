@@ -33,6 +33,17 @@ enum LangCode: String, CaseIterable {
         case .it: return "이탈리아어"
         }
     }
+
+    static var sourceArray: [LangCode] {
+        return LangCode.allCases
+    }
+
+    static var targetArray: [LangCode] {
+        var array = LangCode.allCases
+        _ = array.removeFirst()
+        return array
+    }
+
 }
 
 class Translation2ViewController: UIViewController {
@@ -59,8 +70,16 @@ class Translation2ViewController: UIViewController {
         return pickerView
     }()
 
-    private var targetCode: LangCode?
-    private var sourceCode: LangCode?
+    private var targetCode: LangCode? {
+        didSet {
+            targetCodeTextField.text = targetCode?.description
+        }
+    }
+    private var sourceCode: LangCode? {
+        didSet {
+            sourceCodeTextField.text = sourceCode?.description
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +106,9 @@ private extension Translation2ViewController {
 
         targetCodeTextField.inputView = targetPickerView
         sourceCodeTextField.inputView = sourcePickerView
+
+        sourceCode = .auto
+        targetCode = .ko
     }
 
     func fetchLanguageData() {
@@ -98,19 +120,20 @@ private extension Translation2ViewController {
         let param: Parameters = [
             "query": originalTextView.text!
         ]
-        AF.request(url, method: .post, parameters: param, headers: header)
+                AF.request(url, method: .post, parameters: param, headers: header)
             .validate()
             .responseJSON { [weak self] response in
-             switch response.result {
-             case .success(let value):
-                 let json = JSON(value)
-                 let langCode = json["langCode"].stringValue
-                 self?.sourceCode = .init(rawValue: langCode) ?? .en
-                 self?.fetchTranslationData()
-             case .failure(let error):
-                 print(error)
-             }
-         }
+                print(url)
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let langCode = json["langCode"].stringValue
+                    self?.sourceCode = .init(rawValue: langCode) ?? .en
+                    self?.fetchTranslationData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
 
     func fetchTranslationData() {
@@ -128,6 +151,7 @@ private extension Translation2ViewController {
         ]
 
         AF.request(url, method: .post, parameters: param, headers: header).validate().responseJSON { response in
+            print(url)
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -147,7 +171,7 @@ extension Translation2ViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return LangCode.allCases.count
+        return pickerView.tag == 1 ? LangCode.sourceArray.count : LangCode.targetArray.count
     }
 
 }
@@ -159,7 +183,8 @@ extension Translation2ViewController: UIPickerViewDelegate {
         titleForRow row: Int,
         forComponent component: Int
     ) -> String? {
-        return LangCode.allCases[row].description
+        return pickerView.tag == 1 ?
+        LangCode.sourceArray[row].description : LangCode.targetArray[row].description
     }
 
     func pickerView(
@@ -168,9 +193,9 @@ extension Translation2ViewController: UIPickerViewDelegate {
         inComponent component: Int
     ) {
         if pickerView.tag == 1 {
-            sourceCode = LangCode.allCases[row]
+            sourceCode = LangCode.sourceArray[row]
         } else {
-            targetCode = LangCode.allCases[row]
+            targetCode = LangCode.targetArray[row]
         }
     }
 
