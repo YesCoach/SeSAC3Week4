@@ -48,11 +48,13 @@ enum LangCode: String, CaseIterable {
 
 class Translation2ViewController: UIViewController {
 
+    // MARK: - UI Components
+
     @IBOutlet var originalTextView: UITextView!
     @IBOutlet var translateTextView: UITextView!
     @IBOutlet var requestButton: UIButton!
-    @IBOutlet var targetCodeTextField: UITextField!
-    @IBOutlet var sourceCodeTextField: UITextField!
+    @IBOutlet var targetCodeTextField: CustomTextField!
+    @IBOutlet var sourceCodeTextField: CustomTextField!
 
     private lazy var targetPickerView: UIPickerView = {
         let pickerView = UIPickerView()
@@ -75,6 +77,8 @@ class Translation2ViewController: UIViewController {
         tapGesture.addTarget(self, action: #selector(didBackgroundTouched))
         return tapGesture
     }()
+
+    // MARK: - Properties
 
     private var targetCode: LangCode? {
         didSet {
@@ -177,19 +181,23 @@ private extension Translation2ViewController {
             "text": originalTextView.text!
         ]
 
-        AF.request(url, method: .post, parameters: param, headers: header).validate().responseJSON { response in
-            print(url)
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                self.translateTextView.text = json["message"]["result"]["translatedText"].stringValue
-            case .failure(let error):
-                print(error)
+        AF.request(url, method: .post, parameters: param, headers: header)
+            .validate()
+            .responseJSON { response in
+                print(url)
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    self.translateTextView.text =
+                    json["message"]["result"]["translatedText"].stringValue
+                case .failure(let error):
+                    print(error)
+                }
             }
-        }
     }
 }
+
+// MARK: - UIPickerViewDataSource 구현부
 
 extension Translation2ViewController: UIPickerViewDataSource {
 
@@ -202,6 +210,8 @@ extension Translation2ViewController: UIPickerViewDataSource {
     }
 
 }
+
+// MARK: - UIPickerViewDelegate 구현부
 
 extension Translation2ViewController: UIPickerViewDelegate {
 
@@ -228,6 +238,8 @@ extension Translation2ViewController: UIPickerViewDelegate {
 
 }
 
+// MARK: - UITextFieldDelegate 구현부
+
 extension Translation2ViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         addTapGesture()
@@ -237,8 +249,6 @@ extension Translation2ViewController: UITextFieldDelegate {
         removeTapGesture()
     }
 }
-
-
 
 // MARK: - UITextView+
 
