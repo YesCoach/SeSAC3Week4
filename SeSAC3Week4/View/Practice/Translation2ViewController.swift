@@ -70,6 +70,12 @@ class Translation2ViewController: UIViewController {
         return pickerView
     }()
 
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.addTarget(self, action: #selector(didBackgroundTouched))
+        return tapGesture
+    }()
+
     private var targetCode: LangCode? {
         didSet {
             targetCodeTextField.text = targetCode?.description
@@ -87,6 +93,8 @@ class Translation2ViewController: UIViewController {
     }
 
     @IBAction func didRequestButtonTouched(_ sender: UIButton) {
+        view.endEditing(true)
+
         guard let sourceCode, let targetCode else { return }
         if sourceCode == .auto {
             fetchLanguageData()
@@ -95,20 +103,39 @@ class Translation2ViewController: UIViewController {
         }
     }
 
+    @objc func didBackgroundTouched(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
 }
 
 private extension Translation2ViewController {
 
     func configureUI() {
-        originalTextView.text = nil
-        translateTextView.text = nil
+        navigationItem.title = "번역"
+
+        originalTextView.setupTranslationUI()
+        translateTextView.setupTranslationUI()
         translateTextView.isEditable = false
 
         targetCodeTextField.inputView = targetPickerView
+        targetCodeTextField.delegate = self
         sourceCodeTextField.inputView = sourcePickerView
+        sourceCodeTextField.delegate = self
+
+        requestButton.setTitle("번역하기", for: .normal)
+        requestButton.tintColor = .systemMint
 
         sourceCode = .auto
         targetCode = .ko
+    }
+
+    func addTapGesture() {
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    func removeTapGesture() {
+        view.removeGestureRecognizer(tapGesture)
     }
 
     func fetchLanguageData() {
@@ -199,4 +226,40 @@ extension Translation2ViewController: UIPickerViewDelegate {
         }
     }
 
+}
+
+extension Translation2ViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        addTapGesture()
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        removeTapGesture()
+    }
+}
+
+
+
+// MARK: - UITextView+
+
+extension UITextView {
+    func setupPlaceHolder(with text: String) {
+        if self.text!.isEmpty {
+            self.text = text
+            self.textColor = .secondaryLabel
+        }
+    }
+
+    func setupTranslationUI() {
+        let spacing = 12.0
+        self.textContainerInset = UIEdgeInsets(
+            top: spacing,
+            left: spacing,
+            bottom: spacing,
+            right: spacing
+        )
+        self.text = nil
+        self.backgroundColor = .systemMint
+        self.layer.cornerRadius = 15.0
+    }
 }

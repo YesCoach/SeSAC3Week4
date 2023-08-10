@@ -34,6 +34,13 @@ private extension TranslationViewController {
         originalTextView.text = nil
         translateTextView.text = nil
         translateTextView.isEditable = false
+        navigationItem.title = "번역"
+        navigationItem.backButtonTitle = ""
+        navigationController?.navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.systemMint
+        ]
+        navigationController?.navigationBar.tintColor = .systemMint
+        navigationItem.rightBarButtonItem?.title = "번역2"
     }
 
     func fetchLanguageData() {
