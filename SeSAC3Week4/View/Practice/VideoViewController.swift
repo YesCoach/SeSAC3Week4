@@ -45,61 +45,37 @@ final class VideoViewController: UIViewController {
     }
 
     func callRequest(query: String, page: Int) {
-        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://dapi.kakao.com/v2/search/vclip?query=\(text)&size=30&page=\(page)"
-        let header: HTTPHeaders = ["Authorization" : "KakaoAK \(APIKey.kakaoKey)"]
 
-        AF.request(
-            url,
-            method: .get,
-            headers: header
-        )
-        .validate(statusCode: 200...500)
-        .responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
+        KakaoAPIManger.shared.callRequest(type: .video, query: query) { json in
 
-                print(response.response?.statusCode)
+            print(json)
 
-                let statusCode = response.response?.statusCode ?? 500
+            var result: [Video] = []
+            self.isEnd = json["meta"]["is_end"].boolValue
 
-                if statusCode == 200 {
+            for item in json["documents"].arrayValue {
+                let author = item["author"].stringValue
+                let date = item["datetime"].stringValue
+                let time = item["play_time"].intValue
+                let thumbnail = item["thumbnail"].stringValue
+                let title = item["title"].stringValue
+                let link = item["url"].stringValue
 
-                    var result: [Video] = []
-                    self.isEnd = json["meta"]["is_end"].boolValue
+                let data = Video(
+                    author: author,
+                    datetime: date,
+                    playtime: time,
+                    thumbnail: thumbnail,
+                    title: title,
+                    url: link
+                )
 
-                    for item in json["documents"].arrayValue {
-                        let author = item["author"].stringValue
-                        let date = item["datetime"].stringValue
-                        let time = item["play_time"].intValue
-                        let thumbnail = item["thumbnail"].stringValue
-                        let title = item["title"].stringValue
-                        let link = item["url"].stringValue
-
-                        let data = Video(
-                            author: author,
-                            datetime: date,
-                            playtime: time,
-                            thumbnail: thumbnail,
-                            title: title,
-                            url: link
-                        )
-
-                        result.append(data)
-                    }
-
-                    self.videoList.append(contentsOf: result)
-
-                } else {
-                    print("문제가 발생했어요. 잠시 후 다시 시도해주세요!!")
-                }
-            case .failure(let error):
-                print(error)
+                result.append(data)
             }
+
+            self.videoList.append(contentsOf: result)
         }
     }
-
 }
 
 // UITableViewDataSourcePrefetching: iOS 10 이상 사용 가능한 프로토콜, cellForRowAt 메서드가 호출되기 전에 미리 호출됨

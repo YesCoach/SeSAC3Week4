@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 enum LangCode: String, CaseIterable {
-    case auto, ko, ja, en, es, hi, fr, de, pt, vi, id, fa, ar, mm, th, ru, it
+    case auto, ko, ja, en, es, hi, fr, de, vi, id, fa, ar, mm, th, ru, it
 
     var description: String {
         switch self {
@@ -22,7 +22,6 @@ enum LangCode: String, CaseIterable {
         case .hi: return "힌두어"
         case .fr: return "프랑스어"
         case .de: return "독일어"
-        case .pt: return "포르투갈어"
         case .vi: return "베트남어"
         case .id: return "인도네시아어"
         case .fa: return "페르시아어"
@@ -173,30 +172,15 @@ private extension Translation2ViewController {
     func fetchTranslationData() {
         guard let sourceCode, let targetCode else { return }
 
-        let url = "https://openapi.naver.com/v1/papago/n2mt"
-        let header: HTTPHeaders = [
-            "X-Naver-Client-Id": APIKey.naverId,
-            "X-Naver-Client-Secret": APIKey.naverSecret
-        ]
         let param: Parameters = [
             "source": sourceCode.rawValue,
             "target": targetCode.rawValue,
             "text": originalTextView.text!
         ]
 
-        AF.request(url, method: .post, parameters: param, headers: header)
-            .validate()
-            .responseJSON { response in
-                print(url)
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    self.translateTextView.text =
-                    json["message"]["result"]["translatedText"].stringValue
-                case .failure(let error):
-                    print(error)
-                }
-            }
+        TranslateAPIManager.shared.callRequest(param: param) { [weak self] text in
+            self?.translateTextView.text = text
+        }
     }
 }
 
