@@ -9,11 +9,12 @@ import UIKit
 
 final class CustomTextField: UITextField {
 
-    var isPasteBlocked: Bool = true
-
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
 
-        if isPasteBlocked && action == #selector(UIResponderStandardEditActions.paste(_:)) {
+        if action == #selector(UIResponderStandardEditActions.paste(_:)) ||
+            action == #selector(UIResponderStandardEditActions.cut(_:)) ||
+            action == #selector(UIResponderStandardEditActions.copy(_:))
+        {
             return false
         }
 
