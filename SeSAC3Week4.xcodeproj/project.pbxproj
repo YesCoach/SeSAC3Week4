@@ -32,6 +32,7 @@
 		8980494A2A84B4EF00177876 /* Translation2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898049492A84B4EF00177876 /* Translation2ViewController.swift */; };
 		8980494C2A84D32500177876 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8980494B2A84D32500177876 /* CustomTextField.swift */; };
 		898049502A85BA9700177876 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8980494F2A85BA9700177876 /* ReusableViewProtocol.swift */; };
+		898049522A85BD0000177876 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898049512A85BD0000177876 /* UserDefaultsHelper.swift */; };
 		89CD16522A83231E00B29615 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD16512A83231E00B29615 /* VideoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		898049492A84B4EF00177876 /* Translation2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation2ViewController.swift; sourceTree = "<group>"; };
 		8980494B2A84D32500177876 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8980494F2A85BA9700177876 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		898049512A85BD0000177876 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		89CD16512A83231E00B29615 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				895442F52A80966900C8460E /* ViewController.swift */,
 				891DE7642A81E8240036FB5C /* VideoViewController.swift */,
 				8980494F2A85BA9700177876 /* ReusableViewProtocol.swift */,
+				898049512A85BD0000177876 /* UserDefaultsHelper.swift */,
 				89CD16512A83231E00B29615 /* VideoTableViewCell.swift */,
 				891DE7622A81C4F30036FB5C /* WeatherViewController.swift */,
 				895443102A809C2B00C8460E /* TranslationViewController.swift */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898049522A85BD0000177876 /* UserDefaultsHelper.swift in Sources */,
 				898049502A85BA9700177876 /* ReusableViewProtocol.swift in Sources */,
 				891DE77A2A8247C20036FB5C /* BeerListViewController.swift in Sources */,
 				891DE7762A8236EA0036FB5C /* BeerViewController.swift in Sources */,
