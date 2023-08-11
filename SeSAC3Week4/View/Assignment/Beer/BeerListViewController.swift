@@ -11,8 +11,6 @@ import SwiftyJSON
 
 final class BeerListViewController: UIViewController {
 
-    static let identifier = "BeerListViewController"
-
     @IBOutlet var tableView: UITableView!
 
     private var dataList: [Beer] = [] {

@@ -9,8 +9,6 @@ import UIKit
 
 class VideoTableViewCell: UITableViewCell {
 
-    static let identifier = "VideoTableViewCell"
-
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
