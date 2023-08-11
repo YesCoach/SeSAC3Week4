@@ -91,14 +91,12 @@ class Translation2ViewController: UIViewController {
         }
     }
 
-    let helper = UserDefaultsHelper()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
 
-        originalTextView.text = helper.nickname //
-        _ = helper.age //
+        originalTextView.text = UserDefaultsHelper.standard.nickname //
+        _ = UserDefaultsHelper.standard.age //
     }
 
     @IBAction func didRequestButtonTouched(_ sender: UIButton) {

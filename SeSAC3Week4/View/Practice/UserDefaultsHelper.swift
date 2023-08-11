@@ -9,7 +9,11 @@ import Foundation
 
 class UserDefaultsHelper {
 
+    static let standard = UserDefaultsHelper() // 싱글턴 패턴
+
     let userDefaults = UserDefaults.standard
+
+    private init() { } // 접근 제어자
 
     enum Key: String { // 컴파일 최적화
         case nickname, age
