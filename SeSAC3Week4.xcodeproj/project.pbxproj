@@ -100,8 +100,14 @@
 		891DE7692A821A6F0036FB5C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				891DE76A2A821A830036FB5C /* Practice */,
-				891DE76B2A821A940036FB5C /* Assignment */,
+				895442F72A80966900C8460E /* Main.storyboard */,
+				89C86E502A85F9FF000F1E73 /* AsyncViewController.swift */,
+				895442F52A80966900C8460E /* ViewController.swift */,
+				891DE7642A81E8240036FB5C /* VideoViewController.swift */,
+				89CD16512A83231E00B29615 /* VideoTableViewCell.swift */,
+				891DE7622A81C4F30036FB5C /* WeatherViewController.swift */,
+				895443102A809C2B00C8460E /* TranslationViewController.swift */,
+				898049492A84B4EF00177876 /* Translation2ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,21 +115,10 @@
 		891DE76A2A821A830036FB5C /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				895442F72A80966900C8460E /* Main.storyboard */,
-				89C86E502A85F9FF000F1E73 /* AsyncViewController.swift */,
-				895442F52A80966900C8460E /* ViewController.swift */,
-				891DE7642A81E8240036FB5C /* VideoViewController.swift */,
-				8980494F2A85BA9700177876 /* ReusableViewProtocol.swift */,
-				898049512A85BD0000177876 /* UserDefaultsHelper.swift */,
-				89CD16512A83231E00B29615 /* VideoTableViewCell.swift */,
-				891DE7622A81C4F30036FB5C /* WeatherViewController.swift */,
-				895443102A809C2B00C8460E /* TranslationViewController.swift */,
-				898049492A84B4EF00177876 /* Translation2ViewController.swift */,
-				89C86E4E2A85E35F000F1E73 /* TranslateAPIManager.swift */,
-				8980494B2A84D32500177876 /* CustomTextField.swift */,
-				898049532A85C50E00177876 /* Endpoint.swift */,
-				898049552A85C5CB00177876 /* URL+.swift */,
-				898049572A85C77600177876 /* KakaoAPIManger.swift */,
+				891DE7692A821A6F0036FB5C /* View */,
+				897E91E02A8CC564005083BF /* Network */,
+				897E91E22A8CC596005083BF /* Data */,
+				897E91E12A8CC584005083BF /* Utilities */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -177,10 +172,10 @@
 		895442F02A80966900C8460E /* SeSAC3Week4 */ = {
 			isa = PBXGroup;
 			children = (
-				895442F12A80966900C8460E /* AppDelegate.swift */,
-				895442F32A80966900C8460E /* SceneDelegate.swift */,
+				897E91E32A8CC5B2005083BF /* Application */,
 				891DE76E2A821B130036FB5C /* Model */,
-				891DE7692A821A6F0036FB5C /* View */,
+				891DE76A2A821A830036FB5C /* Practice */,
+				891DE76B2A821A940036FB5C /* Assignment */,
 				895443122A809C4E00C8460E /* APIKey.swift */,
 				895442FA2A80966C00C8460E /* Assets.xcassets */,
 				895442FC2A80966C00C8460E /* LaunchScreen.storyboard */,
@@ -188,6 +183,43 @@
 				8954430E2A809B8B00C8460E /* .gitignore */,
 			);
 			path = SeSAC3Week4;
+			sourceTree = "<group>";
+		};
+		897E91E02A8CC564005083BF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				89C86E4E2A85E35F000F1E73 /* TranslateAPIManager.swift */,
+				898049572A85C77600177876 /* KakaoAPIManger.swift */,
+				898049532A85C50E00177876 /* Endpoint.swift */,
+				898049552A85C5CB00177876 /* URL+.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		897E91E12A8CC584005083BF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8980494F2A85BA9700177876 /* ReusableViewProtocol.swift */,
+				8980494B2A84D32500177876 /* CustomTextField.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		897E91E22A8CC596005083BF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				898049512A85BD0000177876 /* UserDefaultsHelper.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		897E91E32A8CC5B2005083BF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				895442F12A80966900C8460E /* AppDelegate.swift */,
+				895442F32A80966900C8460E /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
