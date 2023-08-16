@@ -7,7 +7,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 final class KakaoAPIManger {
 
@@ -34,7 +33,7 @@ extension KakaoAPIManger {
             method: .get,
             headers: header
         )
-        .validate(statusCode: 200...500)
+        .validate(statusCode: 200...299)
         .responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):

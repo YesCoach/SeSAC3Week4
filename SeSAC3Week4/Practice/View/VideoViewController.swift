@@ -7,7 +7,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 final class VideoViewController: UIViewController {
 
