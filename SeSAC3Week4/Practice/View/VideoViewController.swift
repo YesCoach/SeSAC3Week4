@@ -9,19 +9,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-struct Video {
-    let author: String
-    let datetime: String
-    let playtime: Int
-    let thumbnail: String
-    let title: String
-    let url: String
-
-    var contents: String {
-        return "\(author) | \(playtime)회\n\(datetime)"
-    }
-}
-
 final class VideoViewController: UIViewController {
 
     @IBOutlet var searchBar: UISearchBar!
@@ -37,6 +24,14 @@ final class VideoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+    }
+
+}
+
+private extension VideoViewController {
+
+    func configureUI() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 120
@@ -45,37 +40,15 @@ final class VideoViewController: UIViewController {
     }
 
     func callRequest(query: String, page: Int) {
-
-        KakaoAPIManger.shared.callRequest(type: .video, query: query) { json in
-
-            print(json)
-
-            var result: [Video] = []
-            self.isEnd = json["meta"]["is_end"].boolValue
-
-            for item in json["documents"].arrayValue {
-                let author = item["author"].stringValue
-                let date = item["datetime"].stringValue
-                let time = item["play_time"].intValue
-                let thumbnail = item["thumbnail"].stringValue
-                let title = item["title"].stringValue
-                let link = item["url"].stringValue
-
-                let data = Video(
-                    author: author,
-                    datetime: date,
-                    playtime: time,
-                    thumbnail: thumbnail,
-                    title: title,
-                    url: link
-                )
-
-                result.append(data)
-            }
-
-            self.videoList.append(contentsOf: result)
+        KakaoAPIManger.shared.callRequest(
+            type: .video, query: query
+        ) { [weak self] (data: VideoResult) in
+            guard let self else { return }
+            isEnd = data.meta.isEnd
+            videoList.append(contentsOf: data.documents)
         }
     }
+
 }
 
 // UITableViewDataSourcePrefetching: iOS 10 이상 사용 가능한 프로토콜, cellForRowAt 메서드가 호출되기 전에 미리 호출됨

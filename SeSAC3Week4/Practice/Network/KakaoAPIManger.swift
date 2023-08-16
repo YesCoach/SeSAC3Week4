@@ -20,10 +20,10 @@ final class KakaoAPIManger {
 
 extension KakaoAPIManger {
 
-    func callRequest(
+    func callRequest<T: Codable>(
         type: Endpoint,
         query: String,
-        completionHandler: @escaping (JSON) -> ()
+        completionHandler: @escaping (T) -> ()
     ) {
 
         let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -35,11 +35,10 @@ extension KakaoAPIManger {
             headers: header
         )
         .validate(statusCode: 200...500)
-        .responseJSON { response in
+        .responseDecodable(of: T.self) { response in
             switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                completionHandler(json)
+            case .success(let data):
+                completionHandler(data)
             case .failure(let error):
                 print(error)
             }

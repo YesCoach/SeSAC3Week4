@@ -29,6 +29,7 @@
 		8954430F2A809B8C00C8460E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8954430E2A809B8B00C8460E /* .gitignore */; };
 		895443112A809C2B00C8460E /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895443102A809C2B00C8460E /* TranslationViewController.swift */; };
 		895443132A809C4E00C8460E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895443122A809C4E00C8460E /* APIKey.swift */; };
+		897E91E52A8CC659005083BF /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897E91E42A8CC659005083BF /* Video.swift */; };
 		8980494A2A84B4EF00177876 /* Translation2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898049492A84B4EF00177876 /* Translation2ViewController.swift */; };
 		8980494C2A84D32500177876 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8980494B2A84D32500177876 /* CustomTextField.swift */; };
 		898049502A85BA9700177876 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8980494F2A85BA9700177876 /* ReusableViewProtocol.swift */; };
@@ -63,6 +64,7 @@
 		8954430E2A809B8B00C8460E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		895443102A809C2B00C8460E /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		895443122A809C4E00C8460E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		897E91E42A8CC659005083BF /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		898049492A84B4EF00177876 /* Translation2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation2ViewController.swift; sourceTree = "<group>"; };
 		8980494B2A84D32500177876 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8980494F2A85BA9700177876 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				891DE76F2A8224720036FB5C /* Lottery.swift */,
 				891DE7772A823CE10036FB5C /* Beer.swift */,
+				897E91E42A8CC659005083BF /* Video.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				895443112A809C2B00C8460E /* TranslationViewController.swift in Sources */,
 				891DE7652A81E8240036FB5C /* VideoViewController.swift in Sources */,
 				891DE7632A81C4F30036FB5C /* WeatherViewController.swift in Sources */,
+				897E91E52A8CC659005083BF /* Video.swift in Sources */,
 				898049582A85C77600177876 /* KakaoAPIManger.swift in Sources */,
 				89C86E4F2A85E35F000F1E73 /* TranslateAPIManager.swift in Sources */,
 				898049542A85C50E00177876 /* Endpoint.swift in Sources */,
